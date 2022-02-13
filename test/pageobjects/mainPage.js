@@ -5,7 +5,7 @@ import Page from './page';
  */
 class MainPage extends Page {
     get h1() { return $('h1[id="title"]') };
-
+    get h3() { return $('h3') };
     /**
      * overwrite specific options to adapt it to page object
      */

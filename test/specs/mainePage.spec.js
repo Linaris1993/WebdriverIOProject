@@ -1,6 +1,7 @@
 import MainPage from  '../pageobjects/mainPage';
 
 describe('Main Page', () => {
+
     it('Verify header on Main Page is displayed', async () => {
         await MainPage.open();
 
