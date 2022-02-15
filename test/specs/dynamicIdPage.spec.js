@@ -9,16 +9,16 @@ describe('Dynamic ID Page', () => {
         browser.deleteAllCookies();
         browser.refresh();
     })
-    it('clicking on "Dynamic ID" link redirects me to appropriate page', async () => {
+
+    it('Clicking on "Dynamic ID" link redirects me to appropriate page', async () => {
         await dynamicIdPage.open();
-        await expect(dynamicIdPage.dinamicIdLink).toBeExisting();
+        expect(dynamicIdPage.dinamicIdLink).toBeExisting();
         dynamicIdPage.dinamicIdLink.click();
-        await expect(mainPage.h3).toHaveTextContaining('Dynamic ID');
-        await expect(browser).toHaveUrl('http://uitestingplayground.com/dynamicid');
-    
+        expect(mainPage.h3).toHaveTextContaining('Dynamic');
+        expect(browser).toHaveUrl('http://uitestingplayground.com/dynamicid');
     });
 
-    it('dynamic ID Scenario', () => {
+    it('Dynamic ID Scenario', () => {
         const myInput = $('//button[@class="btn btn-primary"]');
         // dynamicIdPage.BtnWithDynamicId.click();
         // expect(myInput).not.toHaveClassContaining('btn btn-primary')
