@@ -14,7 +14,7 @@ describe('Ajax Data Page', () => {
         await ajaxDataPage.open();
         await expect(ajaxDataPage.ajaxDataLink).toBeExisting();
         ajaxDataPage.ajaxDataLink.click();
-        await expect(mainPage.h3).toHaveTextContaining('AJAX Data');
+        await expect(mainPage.h3).toHaveTextContaining('Data');
         await expect(browser).toHaveUrl('http://uitestingplayground.com/ajax');
     });
 

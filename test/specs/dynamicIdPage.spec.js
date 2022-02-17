@@ -14,8 +14,8 @@ describe('Dynamic ID Page', () => {
         await dynamicIdPage.open();
         expect(dynamicIdPage.dinamicIdLink).toBeExisting();
         dynamicIdPage.dinamicIdLink.click();
-        expect(mainPage.h3).toHaveTextContaining('Dynamic');
-        expect(browser).toHaveUrl('http://uitestingplayground.com/dynamicid');
+        await expect(mainPage.h3).toHaveTextContaining('Dynamic');
+        await expect(browser).toHaveUrl('http://uitestingplayground.com/dynamicid');
     });
 
     it('Dynamic ID Scenario', () => {
