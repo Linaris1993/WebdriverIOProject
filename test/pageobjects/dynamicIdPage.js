@@ -1,4 +1,4 @@
-import Page from "./page";
+const Page = require('./page')
 
 class dynamicIdPage extends Page {
     get dinamicIdLink() { return $('a[href="/dynamicid"]'); }
@@ -9,4 +9,4 @@ class dynamicIdPage extends Page {
     }
 }
 
-export default new dynamicIdPage();
+module.exports = new dynamicIdPage();

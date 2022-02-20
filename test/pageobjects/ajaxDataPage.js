@@ -1,4 +1,4 @@
-import Page from "./page";
+const Page = require('./page')
 
 class ajaxDataPage extends Page {
     get ajaxDataLink() { return $('a[href="/ajax"]') };
@@ -9,4 +9,4 @@ open() {
     return super.open('http://uitestingplayground.com/home/ajax');
 }
 }
-export default new ajaxDataPage();
+module.exports = new ajaxDataPage();

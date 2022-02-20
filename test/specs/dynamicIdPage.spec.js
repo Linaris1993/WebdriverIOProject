@@ -1,7 +1,5 @@
-import mainPage from "../pageobjects/mainPage";
-import dynamicIdPage from "../pageobjects/dynamicIdPage";
-import Page from "../pageobjects/page";
-
+const mainPage = require("../pageobjects/mainPage");
+const dynamicIdPage = require("../pageobjects/dynamicIdPage")
 describe('Dynamic ID Page', () => {
 
     beforeEach(() => {
