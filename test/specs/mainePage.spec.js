@@ -1,12 +1,12 @@
-import MainPage from  '../pageobjects/mainPage';
+const mainPage = require('../pageobjects/mainPage')
 
 describe('Main Page', () => {
 
     it('Verify header on Main Page is displayed', async () => {
-        await MainPage.open();
+        await mainPage.open();
 
-        await expect(MainPage.h1).toBeExisting();
-        await expect(MainPage.h1).toHaveTextContaining(
+        await expect(mainPage.h1).toBeExisting();
+        await expect(mainPage.h1).toHaveTextContaining(
             'UI Test Automation' + '\n' + 'Playground');
     });
 });
