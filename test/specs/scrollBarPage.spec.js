@@ -16,7 +16,7 @@ describe('ScrollBar Page', () => {
 
         await expect(scrollBarPage.scrollBarLink).toBeExisting();
         scrollBarPage.scrollBarLink.click();
-        expect(mainPage.h3).toHaveText(scrollVewH3);
+        await expect(mainPage.h3).toHaveText(scrollVewH3);
         await expect(browser).toHaveUrl('http://uitestingplayground.com/scrollbars');
     });
 
