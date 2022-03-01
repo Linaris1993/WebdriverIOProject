@@ -4,6 +4,7 @@ const attributePage = require('../pageobjects/attributePage');
 describe('Class Attribute Page', () => {
 
     const attributePageH3 = 'Class Attribute'
+    
     beforeEach(() => {
         browser.maximizeWindow();
         browser.deleteAllCookies();
@@ -20,7 +21,7 @@ describe('Class Attribute Page', () => {
     });
 
     it('Attribute scenario', async() => {
-        await attributePage.blueBtn.waitForDisplayed();
+        // await attributePage.blueBtn.waitForDisplayed();
         // const elem = await attributePage.blueBtn
         // const color = await elem.getCSSProperty('color')
         // console.log(color) //need to find btn by color 

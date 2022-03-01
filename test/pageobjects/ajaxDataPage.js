@@ -1,4 +1,4 @@
-const Page = require('./page')
+const Page = require('../pageobjects/page')
 
 class ajaxDataPage extends Page {
     get ajaxDataLink() { return $('a[href="/ajax"]') };
