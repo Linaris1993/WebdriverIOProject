@@ -13,6 +13,7 @@ describe('Dynamic ID Page', () => {
 
     it('Clicking on "Dynamic ID" link redirects me to appropriate page', async () =>  {
         await dynamicIdPage.open();
+        
         await expect(dynamicIdPage.dinamicIdLink).toBeExisting();
               dynamicIdPage.dinamicIdLink.click();
         await expect(mainPage.h3).toHaveText(dynamicDataH3);

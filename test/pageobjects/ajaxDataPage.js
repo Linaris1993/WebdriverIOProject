@@ -7,7 +7,8 @@ class ajaxDataPage extends Page {
     get spinner() { return $('//i[@class="fa fa-spinner fa-spin"]') }; 
 
 open() {
-    return super.open('http://uitestingplayground.com/home/ajax');
+    return super.open('http://uitestingplayground.com/ajax');
 }
 }
+
 module.exports = new ajaxDataPage();
