@@ -22,8 +22,8 @@ exports.config = {
     //
     specs: [
         // './test/specs/**/*.js'
-        './test/specs/sampleApp.spec.js'
-    ],
+        './test/specs/overlappedElementPage.spec.js'
+       ],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
