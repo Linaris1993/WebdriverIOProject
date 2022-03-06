@@ -23,6 +23,7 @@ describe('ScrollBar Page', () => {
     it('Scroll Bar Scenario',  async ()  => {
         const element = $('#hidingButton'); 
        element.scrollIntoView();
+       await (scrollBarPage.hiddenBtn).waitForDisplayed( { timeOut: 5000 } );
        await expect (scrollBarPage.hiddenBtn).toBeDisplayed();
      });
 
