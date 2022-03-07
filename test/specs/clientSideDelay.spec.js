@@ -6,22 +6,30 @@ describe('Client Side Delay Page', () => {
     const clientSideDelayH3 = 'Client Side Delay';
     const clientSideMessage = 'Data calculated on the client side.';
 
-    beforeEach(() => {
-        browser.maximizeWindow();
-        browser.deleteAllCookies();
-        browser.refresh();
-    })
+    beforeEach(async () => {
+        await mainPage.open();
+       await browser.maximizeWindow();
+       await expect(clientSideDelayPage.clientSideDelayLink).toBeExisting();
+       clientSideDelayPage.clientSideDelayLink.click();
+
+    });
+
+    afterEach(async() => {
+       await browser.deleteAllCookies();
+       await browser.refresh();
+    });
 
     it('Clicking on "Client Side Delay" link redirects me to appropriate page', async () => {
         await clientSideDelayPage.open();
 
-        await expect(clientSideDelayPage.clientSideDelayLink).toBeExisting();
-        clientSideDelayPage.clientSideDelayLink.click();
         await expect(mainPage.h3).toHaveText(clientSideDelayH3);
         await expect(browser).toHaveUrl('http://uitestingplayground.com/clientdelay');
      });
 
      it('Client Side Delay scenario', async ()  => {
+        await clientSideDelayPage.open();
+
+        await (clientSideDelayPage.btnTriggeringClientSideLogic).waitForClickable();
         clientSideDelayPage.btnTriggeringClientSideLogic.click();
         await clientSideDelayPage.spinner.waitForDisplayed();
         await browser.waitUntil(

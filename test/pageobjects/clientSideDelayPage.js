@@ -8,7 +8,7 @@ class clientSideDelayPage extends Page{
     get messageContent() { return $('[id="content"] p'); }
 
     open() {
-        return super.open('http://uitestingplayground.com/clientdelay'); 
+        return super.open('/clientdelay'); 
     }
 
 }

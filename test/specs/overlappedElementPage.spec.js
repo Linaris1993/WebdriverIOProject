@@ -7,17 +7,19 @@ describe('Overlapped Element Page', () => {
     const idText = 'test id';
     const nameText = 'name id'
 
-    beforeEach(() => {
-        browser.maximizeWindow();
-        browser.deleteAllCookies();
-        browser.refresh();
-    })
-
-    it('Clicking on "Overlapped Element" link redirects me to appropriate page', async() => {
-        await overlappedElementPage.open();
-
+    beforeEach(async () => {
+        mainPage.open();
         await expect(overlappedElementPage.overlappedElementLink).toBeExisting();
         overlappedElementPage.overlappedElementLink.click();
+    });
+
+    afterEach(async () => {
+        await browser.deleteAllCookies();
+        await browser.refresh();
+    });
+
+    it('Clicking on "Overlapped Element" link redirects me to appropriate page', async() => {
+        await mainPage.h3.waitForDisplayed();
         await expect(mainPage.h3).toHaveText(overlappedElementH3);
         await expect(browser).toHaveUrl('http://uitestingplayground.com/overlapped');
     });
@@ -25,10 +27,11 @@ describe('Overlapped Element Page', () => {
     it('Overlapped Element Scenario', async() => {
         // overlappedElementPage.idInput.setValue(idText);//why with text input it doesn't work? 
 
-        const elem = await  $('input[id="name"]'); 
-       await elem.scrollIntoView();
-       await expect (elem).toBeDisplayed();
-       elem.setValue(nameText);
+        await overlappedElementPage.open();
+        await overlappedElementPage.nameInput.waitForDisplayed();
+       await overlappedElementPage.nameInput.scrollIntoView();
+       await expect (overlappedElementPage.nameInput).toBeDisplayed();
+       overlappedElementPage.nameInput.setValue(nameText);
        await expect(overlappedElementPage.nameInput).toHaveValue(nameText);
     });
 

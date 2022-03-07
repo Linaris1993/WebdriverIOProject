@@ -5,17 +5,21 @@ describe('ScrollBar Page', () => {
 
     const scrollVewH3 = 'Scrollbars';
     
-    beforeEach(() => {
-        browser.maximizeWindow();
-        browser.deleteAllCookies();
-        browser.refresh();
-    })
+    beforeEach(async () => {
+        mainPage.open();
+        await browser.maximizeWindow();
+        await expect(scrollBarPage.scrollBarLink).toBeExisting();
+        scrollBarPage.scrollBarLink.click();
+    });
+
+    afterEach(async () => {
+     await browser.deleteAllCookies();
+     await browser.refresh();
+    });
 
     it('Clicking on "Scrollbars" link redirects me to appropriate page', async ()  => {
         await scrollBarPage.open();
 
-        await expect(scrollBarPage.scrollBarLink).toBeExisting();
-        scrollBarPage.scrollBarLink.click();
         await expect(mainPage.h3).toHaveText(scrollVewH3);
         await expect(browser).toHaveUrl('http://uitestingplayground.com/scrollbars');
     });
@@ -23,8 +27,7 @@ describe('ScrollBar Page', () => {
     it('Scroll Bar Scenario',  async ()  => {
         const element = $('#hidingButton'); 
        element.scrollIntoView();
-       await (scrollBarPage.hiddenBtn).waitForDisplayed( { timeOut: 5000 } );
-       await expect (scrollBarPage.hiddenBtn).toBeDisplayed();
+       await (element).waitForDisplayed( { timeOut: 3000 } );
+       await expect (element).toBeDisplayed();
      });
-
 });

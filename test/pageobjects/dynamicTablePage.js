@@ -1,4 +1,4 @@
-const Page = require('../pageobjects/page')
+const Page = require('./page')
 
 class dynamicTablePage extends Page {
     get dynamicTableLink() { return $('a[href="/dynamictable"]') };

@@ -6,7 +6,7 @@ class dynamicIdPage extends Page {
     get BtnWithDynamicId() { return $('//button[@class="btn btn-primary"]'); }
 
     open() {
-        return super.open('http://uitestingplayground.com/dynamicid');
+        return super.open('/dynamicid');
     }
 }
 

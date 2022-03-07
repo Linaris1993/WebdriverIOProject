@@ -7,7 +7,7 @@ class overlappedElementPage extends Page {
     get nameInput() { return $('input[id="name"]'); }
 
     open() {
-        return super.open('http://uitestingplayground.com/overlapped'); 
+        return super.open('/overlapped'); 
     }
 }
 
