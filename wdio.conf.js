@@ -1,3 +1,5 @@
+const baseUrl = 'http://uitestingplayground.com';
+
 exports.config = {
     //
     // ====================
@@ -22,7 +24,7 @@ exports.config = {
     //
     specs: [
         // './test/specs/**/*.js'
-        './test/specs/overlappedElementPage.spec.js'
+        './test/specs/sampleApp.spec.js'
        ],
     // Patterns to exclude.
     exclude: [

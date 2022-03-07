@@ -9,7 +9,7 @@ class sampleAppPage extends Page {
     get logOutBtn() { return $('//button[text()="Log Out"]'); }
 
     open() {
-        return super.open('http://uitestingplayground.com/sampleapp'); 
+        return super.open('/sampleapp'); 
     }
 }
 

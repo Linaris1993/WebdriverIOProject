@@ -21,10 +21,10 @@ describe('Class Attribute Page', () => {
     });
 
     it('Attribute scenario', async() => {
-        // await attributePage.blueBtn.waitForDisplayed();
+        // await attributePage.blueBtn.waitForDisplayed(); //no idea how to find blue btn
         // const elem = await attributePage.blueBtn
         // const color = await elem.getCSSProperty('color')
-        // console.log(color) //need to find btn by color 
+        // console.log(color)
         // const alertText = await browser.getAlertText();
         // await browser.acceptAlert();
         // await expect(alertText).toHaveText('Primary button pressed');
