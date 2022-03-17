@@ -13,14 +13,9 @@ describe('Sample App test', function()
 
     beforeEach ( async () => {
         await mainPage.open();
-        await browser.maximizeWindow();
+        
         await expect(sampleAppPage.sampleAppLink).toBeExisting();
         sampleAppPage.sampleAppLink.click();
-    });
-
-    afterEach( async() => {
-        await browser.deleteAllCookies();
-        await browser.refresh();
     });
 
     it('Clicking on "Sample App" link redirects me to appropriate page', async () => {

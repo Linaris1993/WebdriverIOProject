@@ -6,15 +6,9 @@ describe('Dynamic ID Page', () => {
     const dynamicDataH3 = 'Dynamic ID'; 
 
     beforeEach(async () => {
-        browser.maximizeWindow();
         await mainPage.open();
         await expect(dynamicIdPage.dinamicIdLink).toBeExisting();
         dynamicIdPage.dinamicIdLink.click();
-    });
-
-    afterEach(async ()=> {
-        browser.deleteAllCookies();
-        browser.refresh();
     });
 
     it('Clicking on "Dynamic ID" link redirects me to appropriate page', async () =>  {

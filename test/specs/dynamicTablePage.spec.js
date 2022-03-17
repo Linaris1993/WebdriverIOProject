@@ -5,12 +5,6 @@ describe('Dynamic Table Page', () => {
 
     const dynamicTableH3 = 'Dynamic Table';
 
-    beforeEach(() => {
-        browser.maximizeWindow();
-        browser.deleteAllCookies();
-        browser.refresh();
-    })
-
     it('Clicking on "Dynamic Table" link redirects me to appropriate page', async () =>  {
         await dynamictablePage.open();
 

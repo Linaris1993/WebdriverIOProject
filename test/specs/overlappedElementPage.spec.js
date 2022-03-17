@@ -13,11 +13,6 @@ describe('Overlapped Element Page', () => {
         overlappedElementPage.overlappedElementLink.click();
     });
 
-    afterEach(async () => {
-        await browser.deleteAllCookies();
-        await browser.refresh();
-    });
-
     it('Clicking on "Overlapped Element" link redirects me to appropriate page', async() => {
         await mainPage.h3.waitForDisplayed();
         await expect(mainPage.h3).toHaveText(overlappedElementH3);

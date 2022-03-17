@@ -8,15 +8,9 @@ describe('Ajax Data Page', () => {
     const requestMessageText = 'Data loaded with AJAX get request.';
 
     beforeEach(async () => {
-        browser.maximizeWindow();
         await mainPage.open();
         await ajaxDataPage.ajaxDataLink.waitForDisplayed();
         await ajaxDataPage.ajaxDataLink.click();
-    });
-
-    afterEach(async () => {
-        browser.deleteAllCookies();
-        browser.refresh();
     });
 
     it('Clicking on "Ajax Data" link redirects me to appropriate page', async () => {

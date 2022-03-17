@@ -4,15 +4,9 @@ const attributePage = require('../pageobjects/attributePage');
 describe('Class Attribute Page', () => {
 
     const attributePageH3 = 'Class Attribute'
-    
-    beforeEach(() => {
-        browser.maximizeWindow();
-        browser.deleteAllCookies();
-        browser.refresh();
-    })
 
     it('Clicking on "Attribute" link redirects me to appropriate page', async () => {
-        await attributePage.open();
+        await mainPage.open();
 
         await expect(attributePage.attributeLink).toBeExisting();
         attributePage.attributeLink.click();

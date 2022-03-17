@@ -8,15 +8,10 @@ describe('Client Side Delay Page', () => {
 
     beforeEach(async () => {
         await mainPage.open();
-       await browser.maximizeWindow();
+
        await expect(clientSideDelayPage.clientSideDelayLink).toBeExisting();
        clientSideDelayPage.clientSideDelayLink.click();
 
-    });
-
-    afterEach(async() => {
-       await browser.deleteAllCookies();
-       await browser.refresh();
     });
 
     it('Clicking on "Client Side Delay" link redirects me to appropriate page', async () => {

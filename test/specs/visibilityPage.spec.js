@@ -5,14 +5,8 @@ describe('Visibility Page', () => {
 
     const visibilitPageH3 = 'Visibility'; 
 
-    beforeEach(() => {
-        browser.maximizeWindow();
-        browser.deleteAllCookies();
-        browser.refresh();
-    })
-
     it('Clicking on "Visibility" link redirects me to appropriate page', async() => {
-        await visibilityPage.open();
+        await mainPage.open();
 
         await expect(visibilityPage.visibilityLink).toBeExisting();
         visibilityPage.visibilityLink.click();
