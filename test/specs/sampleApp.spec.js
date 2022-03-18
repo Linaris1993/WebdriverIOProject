@@ -1,12 +1,15 @@
 const mainPage = require("../pageobjects/mainPage");
 const sampleAppPage = require("../pageobjects/sampleApp");
-// const faker = require('faker');
+const { faker } = require('@faker-js/faker');
+const { CONFIG_HELPER_INTRO } = require("@wdio/cli/build/constants");
+
 
 describe('Sample App test', function() 
 {
     const sampleAppH3 = 'Sample App';
-    const userName = 'ladyBug';
-    const password = 'pwd';
+    // const userName = 'ladyBug';
+    const userName = faker.name.findName();
+    const password = "pwd";
     const wrongUserName = '';
     const wrongPassword = 'pdw';
     const logOutMsg = 'User logged out.';
@@ -26,16 +29,15 @@ describe('Sample App test', function()
         // await expect(browser).toHaveUrl(`${baseUrl} + '/sampleapp'`); //need to figure out 
     });
 
-    // it('Sample App Happy Path Login', async() => {
-    //     await expect(sampleAppPage.userName).toBeDisplayed();
-    //     sampleAppPage.userName.setValue(userName);
-    //     sampleAppPage.password.setValue(parseInt(password));
-    //     sampleAppPage.loginBtn.click();
-    //     await browser.pause(10000)
-    //     await expect(sampleAppPage.loginMsg).toHaveTextContaining(`Welcome, ${userName} + '!'`);
-    //     sampleAppPage.logOutBtn.click(); 
-    //     await expect(sampleAppPage.loginMsg).toHaveText(logOutMsg);
-    // });
+    it('Sample App Happy Path Login', async() => {
+        await expect(sampleAppPage.userName).toBeDisplayed();
+        await sampleAppPage.userName.setValue(userName);
+        await  sampleAppPage.password.setValue(password);
+        sampleAppPage.loginBtn.click();
+        await expect(sampleAppPage.loginMsg).toHaveTextContaining(`Welcome, ${userName}` + '!');
+        sampleAppPage.logOutBtn.click(); 
+        await expect(sampleAppPage.loginMsg).toHaveText(logOutMsg);
+    });
 
     it('Sample App login with wrong userName', async () => {
         await sampleAppPage.open();
@@ -55,6 +57,7 @@ describe('Sample App test', function()
 
         await expect(sampleAppPage.userName).toBeDisplayed();
         sampleAppPage.userName.setValue(userName);
+        console.log(userName + 'abka');
         sampleAppPage.password.setValue(wrongPassword);
         sampleAppPage.loginBtn.click();
         await expect(sampleAppPage.loginMsg).not.toHaveText(`Welcome, ${userName} + '!'`);

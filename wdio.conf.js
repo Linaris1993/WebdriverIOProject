@@ -4,7 +4,7 @@ exports.config = {
 
     specs: [
         // './test/specs/**/*.js'
-        './test/specs/visibilityPage.spec.js'
+        './test/specs/sampleApp.spec.js'
        ],
  
     exclude: [
@@ -50,7 +50,7 @@ ileRetriesDeferred: false,
     },
 
     before: async function() {
-        await mainPage.open();
+       await browser.url(baseUrl);
         await browser.maximizeWindow();
     },
 

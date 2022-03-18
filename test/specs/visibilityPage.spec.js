@@ -1,3 +1,4 @@
+const { config } = require("../../wdio.conf");
 const mainPage = require("../pageobjects/mainPage");
 const visibilityPage = require("../pageobjects/visibilityPage");
 
@@ -6,12 +7,12 @@ describe('Visibility Page', () => {
     const visibilitPageH3 = 'Visibility'; 
 
     it('Clicking on "Visibility" link redirects me to appropriate page', async() => {
-        await mainPage.open();
+        // await mainPage.open();
 
         await expect(visibilityPage.visibilityLink).toBeExisting();
         visibilityPage.visibilityLink.click();
         await expect(mainPage.h3).toHaveText(visibilitPageH3);
-        await expect(browser).toHaveUrl('http://uitestingplayground.com/visibility');
+        await expect(browser).toHaveUrl(config.baseUrl + '/visibility');
     });
 
     it('Visibility scenario', async () => {
