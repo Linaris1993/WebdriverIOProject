@@ -1,5 +1,6 @@
 const mainPage  = require('../pageobjects/mainPage');
 const overlappedElementPage = require('../pageobjects/overlappedElementPage');
+const { config } = require("../../wdio.conf");
 
 describe('Overlapped Element Page', () => {
 
@@ -16,7 +17,7 @@ describe('Overlapped Element Page', () => {
     it('Clicking on "Overlapped Element" link redirects me to appropriate page', async() => {
         await mainPage.h3.waitForDisplayed();
         await expect(mainPage.h3).toHaveText(overlappedElementH3);
-        await expect(browser).toHaveUrl('http://uitestingplayground.com/overlapped');
+        await expect(browser).toHaveUrl(config.baseUrl + '/overlapped');
     });
 
     it('Overlapped Element Scenario', async() => {

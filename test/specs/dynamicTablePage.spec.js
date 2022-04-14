@@ -1,5 +1,6 @@
 const mainPage = require("../pageobjects/mainPage");
 const dynamictablePage = require("../pageobjects/dynamicTablePage");
+const { config } = require("../../wdio.conf");
 
 describe('Dynamic Table Page', () => {
 
@@ -11,7 +12,7 @@ describe('Dynamic Table Page', () => {
         await expect(dynamictablePage.dynamicTableLink).toBeExisting();
               dynamictablePage.dynamicTableLink.click();
         await expect(mainPage.h3).toHaveText(dynamicTableH3);
-        await expect(browser).toHaveUrl('http://uitestingplayground.com/dynamictable');
+        await expect(browser).toHaveUrl(config.baseUrl + '/dynamictable');
     });
 
     it('Dynamic Page Scenario', async () => {

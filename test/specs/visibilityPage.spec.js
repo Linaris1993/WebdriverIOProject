@@ -7,8 +7,6 @@ describe('Visibility Page', () => {
     const visibilitPageH3 = 'Visibility'; 
 
     it('Clicking on "Visibility" link redirects me to appropriate page', async() => {
-        // await mainPage.open();
-
         await expect(visibilityPage.visibilityLink).toBeExisting();
         visibilityPage.visibilityLink.click();
         await expect(mainPage.h3).toHaveText(visibilitPageH3);

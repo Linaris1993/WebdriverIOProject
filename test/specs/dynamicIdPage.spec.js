@@ -1,5 +1,6 @@
 const mainPage = require("../pageobjects/mainPage");
 const dynamicIdPage = require("../pageobjects/dynamicIdPage");
+const { config } = require("../../wdio.conf");
 
 describe('Dynamic ID Page', () => {
 
@@ -14,7 +15,7 @@ describe('Dynamic ID Page', () => {
     it('Clicking on "Dynamic ID" link redirects me to appropriate page', async () =>  {
         await dynamicIdPage.open();
         await expect(mainPage.h3).toHaveText(dynamicDataH3);
-        await expect(browser).toHaveUrl('http://uitestingplayground.com/dynamicid');
+        await expect(browser).toHaveUrl(config.baseUrl + '/dynamicid');
     });
 
     it('Dynamic ID Scenario', async () => {

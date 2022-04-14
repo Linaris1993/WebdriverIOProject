@@ -1,5 +1,6 @@
 const mainPage = require('../pageobjects/mainPage');
 const attributePage = require('../pageobjects/attributePage');
+const { config } = require("../../wdio.conf");
 
 describe('Class Attribute Page', () => {
 
@@ -11,7 +12,7 @@ describe('Class Attribute Page', () => {
         await expect(attributePage.attributeLink).toBeExisting();
         attributePage.attributeLink.click();
         await expect(mainPage.h3).toHaveTextContaining(attributePageH3);
-        await expect(browser).toHaveUrl('http://uitestingplayground.com/classattr');
+        await expect(browser).toHaveUrl(config.baseUrl + '/classattr');
     });
 
     it('Attribute scenario', async() => {

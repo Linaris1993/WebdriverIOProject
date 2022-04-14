@@ -2,12 +2,12 @@ const mainPage = require("../pageobjects/mainPage");
 const sampleAppPage = require("../pageobjects/sampleApp");
 const { faker } = require('@faker-js/faker');
 const { CONFIG_HELPER_INTRO } = require("@wdio/cli/build/constants");
+const { config } = require("../../wdio.conf");
 
 
 describe('Sample App test', function() 
 {
     const sampleAppH3 = 'Sample App';
-    // const userName = 'ladyBug';
     const userName = faker.name.findName();
     const password = "pwd";
     const wrongUserName = '';
@@ -25,8 +25,7 @@ describe('Sample App test', function()
         await sampleAppPage.open();
 
         await expect(mainPage.h3).toHaveText(sampleAppH3);
-        await expect(browser).toHaveUrl('http://uitestingplayground.com/sampleapp');
-        // await expect(browser).toHaveUrl(`${baseUrl} + '/sampleapp'`); //need to figure out 
+        await expect(browser).toHaveUrl(config.baseUrl + '/sampleapp');
     });
 
     it('Sample App Happy Path Login', async() => {

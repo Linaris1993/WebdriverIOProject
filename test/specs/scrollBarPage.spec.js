@@ -1,5 +1,6 @@
 const mainPage = require("../pageobjects/mainPage");
 const scrollBarPage = require("../pageobjects/scrollBarPage");
+const { config } = require("../../wdio.conf");
 
 describe('ScrollBar Page', () => {
 
@@ -15,7 +16,7 @@ describe('ScrollBar Page', () => {
         await scrollBarPage.open();
 
         await expect(mainPage.h3).toHaveText(scrollVewH3);
-        await expect(browser).toHaveUrl('http://uitestingplayground.com/scrollbars');
+        await expect(browser).toHaveUrl(config.baseUrl + '/scrollbars');
     });
 
     it('Scroll Bar Scenario',  async ()  => {

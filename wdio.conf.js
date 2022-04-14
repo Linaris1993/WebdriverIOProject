@@ -1,10 +1,14 @@
+const drivers = {
+    chrome: {version: '100.0.4896.88'}, //https://chromedriver.chromium.org
+};
+
 const baseUrl = 'http://uitestingplayground.com';
 
 exports.config = {
 
     specs: [
-        // './test/specs/**/*.js'
-        './test/specs/sampleApp.spec.js'
+        './test/specs/**/*.js'
+        // './test/specs/dynamicIdPage.spec.js'
        ],
  
     exclude: [
@@ -36,7 +40,14 @@ exports.config = {
  
     connectionRetryCount: 3,
 
-    services: ['chromedriver'],
+    // services: ['chromedriver'],
+    services: [
+        ['chromedriver', {
+            logPath: 'logs',
+            installArgs: { drivers },
+            args: {drivers},
+        }]
+    ],
     
 
     framework: 'mocha',
@@ -58,4 +69,5 @@ ileRetriesDeferred: false,
         await browser.deleteAllCookies();
         await  browser.refresh();
     }
+
 }
